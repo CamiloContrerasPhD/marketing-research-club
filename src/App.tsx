@@ -127,9 +127,9 @@ function App() {
               Facultad de Administración · Universidad de los Andes
             </p>
             <h1 className="text-[2.6rem] font-black leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Convertimos datos
+              Investigación Científica
               <br />
-              en <span className="mrc-highlight text-white">decisiones</span>
+              para <span className="mrc-highlight text-white">Decisiones en Marketing</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium text-white/75 sm:text-xl">
               Semillero de investigación del Área de Mercadeo. Dieciséis semanas para
