@@ -133,7 +133,7 @@ function App() {
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium text-white/75 sm:text-xl">
               Semillero de investigación del Área de Mercadeo. Dieciséis semanas para
-              aprender a preguntar bien, medir con rigor y traducir evidencia en
+              aprender proponer preguntar de negocio con visión científica, medir y traducir evidencia en
               estrategia.
             </p>
 
@@ -317,7 +317,7 @@ function App() {
               <div className="mrc-rule mt-5" />
               <p className="mt-6 text-lg leading-relaxed text-mrc-gray">
                 El Marketing Research Club es una comunidad dedicada al estudio y la
-                aplicación de la investigación de mercados. Reunimos estudiantes,
+                aplicación de la investigación científica en mercadeo. Reunimos estudiantes,
                 profesores y profesionales interesados en comprender el comportamiento del
                 consumidor, generar conocimiento relevante y promover decisiones
                 fundamentadas en evidencia.
