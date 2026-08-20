@@ -475,7 +475,7 @@ function App() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
-              <Logo variant="blanco" tone="blanco" markClassName="h-11" />
+              <Logo markClassName="h-11" />
               <span className="hidden h-10 w-px bg-white/15 sm:block" />
               <img
                 src="./logo-universidad.png"
@@ -484,10 +484,10 @@ function App() {
               />
             </div>
             <div className="text-center md:text-right">
-              <p className="text-sm text-white/60">
+              <p className="text-sm text/60">
                 © 2026 Marketing Research Club · Universidad de los Andes
               </p>
-              <p className="mt-1 text-xs text-white/40">
+              <p className="mt-1 text-xs text/40">
                 Facultad de Administración · Área de Mercadeo · Bogotá, Colombia
               </p>
             </div>
