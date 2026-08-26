@@ -22,12 +22,23 @@ export interface Phase {
   events: ProgramEvent[];
 }
 
-/** Enlace al formulario de inscripción al club. */
+/**
+ * Formulario de inscripción al club (Microsoft Forms, cuenta del semillero).
+ *
+ * Reemplaza al Google Form anterior, que pertenecía a una cuenta de terceros:
+ * las respuestas de los estudiantes llegaban a un buzón fuera de nuestro control.
+ */
 export const CLUB_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLScsp2WEuDHynYGwdHi4RkZsQkE_-zlC4svjLI6_gKUwnzL45Q/viewform';
+  'https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=fAS9-kj_KkmLu4-YufucytggQ1-camhDgyReX9xj2UVUQldGMEJNNDQyUlgwMTJYS1UxRFpUV0dVQy4u';
 
-/** Endpoint de Formspree para las inscripciones a sesiones. */
-export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqjrlll';
+/**
+ * Formulario de inscripción a una sesión suelta (Microsoft Forms).
+ *
+ * Pendiente: sustituye al endpoint de Formspree `mpqjrlll`, que pertenecía a
+ * una cuenta ajena. Mientras esta constante esté vacía, el sitio dirige a los
+ * interesados al formulario del club en vez de enviar datos a ese endpoint.
+ */
+export const SESSION_FORM_URL = '';
 
 /** Buzón del semillero. */
 export const EMAIL_RECIPIENT = 'semillero_marketing_uniandes@uniandes.onmicrosoft.com';

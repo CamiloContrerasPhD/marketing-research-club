@@ -5,6 +5,7 @@ import {
   CheckCircle,
   Clock,
   ExternalLink,
+  Mail,
   MapPin,
   Send,
   User,
@@ -24,7 +25,6 @@ import {
   AREA_URL,
   CLUB_FORM_URL,
   EMAIL_RECIPIENT,
-  FORMSPREE_ENDPOINT,
   allEvents,
   phases,
   type ProgramEvent,
@@ -61,30 +61,26 @@ function App() {
     const selected = allEvents.find((ev) => ev.id.toString() === sessionForm.sesion);
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          _subject: 'Inscripción Sesión Semillero',
-          email: EMAIL_RECIPIENT,
-          nombre: sessionForm.nombre,
-          correo: sessionForm.email,
-          sesion: selected ? `Semana ${selected.week}: ${selected.title}` : 'No especificada',
-          fecha: selected?.date ?? 'N/A',
-          hora: selected?.time ?? 'N/A',
-          message: [
-            'Nueva inscripción a sesión del Marketing Research Club:',
-            '',
-            `Nombre: ${sessionForm.nombre}`,
-            `Correo: ${sessionForm.email}`,
-            `Sesión: ${selected ? `Semana ${selected.week} - ${selected.title}` : 'No especificada'}`,
-            `Fecha: ${selected?.date ?? 'N/A'}`,
-            `Hora: ${selected?.time ?? 'N/A'}`,
-          ].join('\n'),
-        }),
-      });
+      // El endpoint de Formspree que había aquí pertenecía a una cuenta ajena:
+      // los datos de cada estudiante llegaban a un buzón fuera de nuestro control.
+      // Hasta que exista el formulario propio en Microsoft Forms, la inscripción
+      // se compone como un correo dirigido al buzón del semillero.
+      const asunto = `Inscripción a sesión — ${
+        selected ? `Semana ${selected.week}: ${selected.title}` : 'sesión por confirmar'
+      }`;
+      const cuerpo = [
+        'Nueva inscripción a una sesión del Marketing Research Club:',
+        '',
+        `Nombre: ${sessionForm.nombre}`,
+        `Correo: ${sessionForm.email}`,
+        `Sesión: ${selected ? `Semana ${selected.week} — ${selected.title}` : 'No especificada'}`,
+        `Fecha: ${selected?.date ?? 'N/A'}`,
+        `Hora: ${selected?.time ?? 'N/A'}`,
+      ].join('\n');
 
-      if (!response.ok) throw new Error('respuesta no satisfactoria');
+      window.location.href = `mailto:${EMAIL_RECIPIENT}?subject=${encodeURIComponent(
+        asunto,
+      )}&body=${encodeURIComponent(cuerpo)}`;
 
       setSessionSuccess(true);
       window.setTimeout(() => {
@@ -471,7 +467,7 @@ function App() {
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="bg-mrc-paper-ink py-12">
+      <footer className="bg-mrc-blue-ink py-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
@@ -484,10 +480,19 @@ function App() {
               />
             </div>
             <div className="text-center md:text-right">
-              <p className="text-sm text/60">
+              <a
+                href={`mailto:${EMAIL_RECIPIENT}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md text-sm font-semibold text-mrc-yellow transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mrc-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-mrc-blue-ink"
+              >
+                <Mail className="h-4 w-4" />
+                {EMAIL_RECIPIENT}
+              </a>
+              <p className="mt-3 text-sm text-white/60">
                 © 2026 Marketing Research Club · Universidad de los Andes
               </p>
-              <p className="mt-1 text-xs text/40">
+              <p className="mt-1 text-xs text-white/40">
                 Facultad de Administración · Área de Mercadeo · Bogotá, Colombia
               </p>
             </div>
