@@ -29,7 +29,7 @@ export interface Phase {
  * las respuestas de los estudiantes llegaban a un buzón fuera de nuestro control.
  */
 export const CLUB_FORM_URL =
-  'https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=fAS9-kj_KkmLu4-YufucytggQ1-camhDgyReX9xj2UVUQldGMEJNNDQyUlgwMTJYS1UxRFpUV0dVQy4u';
+  'https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=fAS9-kj_KkmLu4-YufucytggQ1-camhDgyReX9xj2UVUMERQVFhSTlRQS0VUNU9PVVVMSVBKVDY0Si4u';
 
 /**
  * Formulario de inscripción a una sesión suelta (Microsoft Forms).
