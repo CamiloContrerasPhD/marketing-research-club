@@ -1,7 +1,22 @@
 import { useState } from 'react';
 import {
   ArrowRight,
+  Brain,
   Calendar,
+  ClipboardList,
+  Cpu,
+  Database,
+  FileText,
+  FlaskConical,
+  Gem,
+  Globe,
+  LineChart,
+  MessagesSquare,
+  Presentation,
+  Sigma,
+  Target,
+  Users,
+  Waves,
   CheckCircle,
   Clock,
   ExternalLink,
@@ -25,6 +40,7 @@ import {
   AREA_URL,
   CLUB_FORM_URL,
   EMAIL_RECIPIENT,
+  PROGRAMA,
   allEvents,
   phases,
   type ProgramEvent,
@@ -129,8 +145,8 @@ function App() {
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium text-white/75 sm:text-xl">
               Semillero de investigación del Área de Mercadeo. Dieciséis semanas para
-              aprender proponer preguntar de negocio con visión científica, medir y traducir evidencia en
-              estrategia.
+              aprender a plantear preguntas de negocio con rigor científico, medirlas y
+              traducir la evidencia en estrategia.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -155,7 +171,7 @@ function App() {
 
             <p className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-white/60">
               <span className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-mrc-yellow" /> Lunes, 15:30 – 17:00
+                <Calendar className="h-4 w-4 text-mrc-yellow" /> {PROGRAMA.dia}, {PROGRAMA.horario}
               </span>
               <span className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-mrc-yellow" /> Bogotá · presencial y virtual
@@ -170,9 +186,9 @@ function App() {
         <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {[
-              { number: '16', label: 'Semanas de programa' },
-              { number: '4', label: 'Fases de aprendizaje' },
-              { number: '12+', label: 'Invitados expertos' },
+              { number: '7', label: 'Dominios de investigación' },
+              { number: '2', label: 'Vías: académica y aplicada' },
+              { number: '12+', label: 'Expertos invitados' },
               { number: '8+', label: 'Años de trayectoria' },
             ].map((stat, index) => (
               <div
@@ -188,20 +204,224 @@ function App() {
         </div>
       </section>
 
+      {/* ============ CÓMO FUNCIONA — azul profundo ============ */}
+      <section
+        id="como-funciona"
+        className="relative overflow-hidden bg-mrc-blue-deep py-20 sm:py-24"
+      >
+        <div className="mrc-iso-grid absolute inset-0 opacity-60" />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="mb-14 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-yellow">
+              Cómo trabajamos
+            </p>
+            <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+              De la pregunta al resultado
+            </h2>
+            <div className="mrc-rule mt-5" />
+            <p className="mt-6 text-lg leading-relaxed text-white/75">
+              El club enseña un tránsito: de «yo creo» a «la evidencia muestra». Todo
+              proyecto arranca con una pregunta y termina en algo que un tercero puede
+              revisar. Entre esos dos puntos está el oficio que se aprende aquí.
+            </p>
+          </div>
+
+          {/* Ejemplo concreto, destacado */}
+          <div className="relative mb-12 overflow-hidden rounded-2xl border border-mrc-yellow/25 bg-mrc-yellow/[0.07] p-6 pl-8 sm:p-8 sm:pl-10">
+            <span className="absolute inset-y-0 left-0 w-1.5 bg-mrc-yellow" />
+            <Isotipo
+              variant="blanco"
+              className="pointer-events-none absolute -bottom-8 right-4 hidden h-40 w-auto opacity-[0.06] sm:block"
+            />
+            <p className="relative text-xs font-bold uppercase tracking-[0.2em] text-mrc-yellow">
+              Una pregunta en acción
+            </p>
+            <p className="relative mt-4 max-w-3xl text-lg leading-relaxed text-white/85">
+              Las ventas en línea caen 15%. La pregunta útil no es qué hacer, sino qué lo
+              está causando: el tipo de contenido, el formato de la campaña, un cambio
+              generacional. La respuesta se busca con un experimento A/B que enfrenta
+              estímulos emocionales contra racionales, en plataformas reales.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                n: '01',
+                titulo: 'Dos vías, un método',
+                texto:
+                  'La vía académica genera conocimiento nuevo y entrega un paper de 15 a 20 páginas más un póster. La aplicada resuelve un problema concreto de negocio y entrega un informe ejecutivo y un pitch de siete minutos.',
+              },
+              {
+                n: '02',
+                titulo: 'Tres pilares',
+                texto:
+                  'Objetividad para separar los hechos de las opiniones. Sistematicidad en procesos ordenados y documentados. Reproducibilidad, para que alguien más pueda verificar lo que afirmamos. Rigen ambas vías por igual.',
+              },
+              {
+                n: '03',
+                titulo: 'Con qué se trabaja',
+                texto:
+                  'Estadística y programación, diseño de encuestas, análisis cualitativo de entrevistas y grupos focales, investigación asistida por IA, bases de datos académicas, y experimentos junto a Ingeniería y Economía.',
+              },
+            ].map((b) => (
+              <div
+                key={b.n}
+                className="hover-lift group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-colors hover:border-mrc-yellow/40"
+              >
+                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-mrc-yellow via-mrc-orange to-transparent" />
+                <span className="pointer-events-none absolute -right-3 -top-6 text-[7rem] font-black leading-none text-white/[0.05] transition-colors group-hover:text-mrc-yellow/10">
+                  {b.n}
+                </span>
+                <p className="relative text-sm font-black tracking-[0.2em] text-mrc-yellow">
+                  {b.n}
+                </p>
+                <h3 className="relative mt-4 text-xl font-black text-white">{b.titulo}</h3>
+                <p className="relative mt-3 text-sm leading-relaxed text-white/70">{b.texto}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 max-w-2xl text-sm leading-relaxed text-white/55">
+            Los roles rotan entre los miembros cada semestre: coordinación de lectura,
+            community manager, enlace con empresas y coordinación de eventos.
+          </p>
+        </div>
+      </section>
+
+      {/* ============ DOMINIOS — claro ============ */}
+      <section id="areas" className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="mb-14 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
+              De qué está hecho el campo
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-mrc-blue-deep md:text-6xl">
+              DOMINIOS
+            </h2>
+            <div className="mrc-rule mt-5" />
+            <p className="mt-6 text-lg text-mrc-gray">
+              Siete frentes donde el club investiga. Cada proyecto se ancla en{' '}
+              <strong className="font-bold text-mrc-blue">uno o dos</strong> de ellos.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {[
+              { icono: Brain, nombre: 'Comportamiento del consumidor', texto: 'Cómo perciben, deciden y actúan las personas. Psicología del consumo, economía conductual y neuromarketing.', fondo: 'bg-mrc-blue' },
+              { icono: Waves, nombre: 'Marketing sensorial', texto: 'El papel de los sentidos en la experiencia de marca y en el momento de la decisión de compra.', fondo: 'bg-mrc-orange' },
+              { icono: Gem, nombre: 'Lujo y branding', texto: 'Gestión del valor simbólico, la exclusividad y el significado que una marca sostiene en el tiempo.', fondo: 'bg-mrc-blue-deep' },
+              { icono: Target, nombre: 'Estrategia y gestión', texto: 'Posicionamiento, segmentación y pricing. Qué decide una organización y con qué consecuencias.', fondo: 'bg-mrc-blue-light' },
+              { icono: LineChart, nombre: 'Marketing digital y datos', texto: 'Entornos digitales, atribución, personalización y medición del desempeño en canales en línea.', fondo: 'bg-mrc-blue-deep' },
+              { icono: Globe, nombre: 'Macromarketing y marketing social', texto: 'La relación entre marketing, sociedad y ética. Consumo responsable, sostenibilidad y realidades culturales.', fondo: 'bg-mrc-orange' },
+              { icono: Cpu, nombre: 'Marketing e inteligencia artificial', texto: 'Predicción, automatización de decisiones y contenido generado, y sus efectos sobre el mercado.', fondo: 'bg-mrc-blue' },
+            ].map((d, i) => {
+              const ancho = i === 6; // la última cierra la fila a lo ancho
+              return (
+              <div
+                key={d.nombre}
+                className={`hover-lift group overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white shadow-sm transition-colors hover:border-mrc-blue/30 ${
+                  ancho ? 'md:col-span-2 md:flex xl:col-span-2' : ''
+                }`}
+              >
+                {/* tapa gráfica: la geometría isométrica de la marca hace de imagen */}
+                <div
+                  className={`relative overflow-hidden ${d.fondo} ${
+                    ancho ? 'h-32 md:h-auto md:w-1/2 md:shrink-0' : 'h-32'
+                  }`}
+                >
+                  <div className="mrc-iso-grid absolute inset-0 opacity-80" />
+                  <Isotipo
+                    variant="blanco"
+                    className="pointer-events-none absolute -bottom-6 -right-4 h-36 w-auto opacity-[0.16] transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[0.62rem] font-black uppercase tracking-wider text-mrc-blue-deep">
+                    Dominio {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <d.icono className="absolute bottom-4 left-4 h-9 w-9 text-white" />
+                </div>
+
+                <div className={`p-6 ${ancho ? 'md:flex md:flex-col md:justify-center md:p-8' : ''}`}>
+                  <h3 className="text-xl font-bold leading-tight text-mrc-blue-deep transition-colors group-hover:text-mrc-blue">
+                    {d.nombre}
+                  </h3>
+                  <p className="mt-3 text-[0.95rem] leading-relaxed text-mrc-gray">{d.texto}</p>
+                </div>
+              </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ MÉTODOS — azul profundo ============ */}
+      <section className="relative overflow-hidden bg-mrc-blue-deep py-20 sm:py-24">
+        <div className="mrc-iso-grid absolute inset-0 opacity-60" />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="mb-14 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-yellow">
+              Con qué se responde
+            </p>
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-white md:text-6xl">
+              MÉTODOS
+            </h2>
+            <div className="mrc-rule mt-5" />
+            <p className="mt-6 text-lg text-white/70">
+              Una cosa es qué se estudia y otra cómo. El método se elige según la pregunta,
+              no al revés.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              { icono: FlaskConical, nombre: 'Experimentación', texto: 'Diseños experimentales y medidas biométricas para inferir procesos de percepción, emoción y decisión.' },
+              { icono: Sigma, nombre: 'Modelado estadístico', texto: 'Modelos formales y econometría sobre datos observacionales o de panel, para estimar efectos y pronosticar.' },
+              { icono: MessagesSquare, nombre: 'Métodos cualitativos', texto: 'Entrevistas, etnografía y análisis de discurso para entender significados y prácticas de consumo.' },
+              { icono: Database, nombre: 'Ciencia de datos', texto: 'Minería de datos, aprendizaje automático y procesamiento de lenguaje natural sobre grandes volúmenes.' },
+            ].map((m, i) => (
+              <div
+                key={m.nombre}
+                className="hover-lift group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-sm transition-colors hover:border-mrc-yellow/50"
+              >
+                <div className="relative h-28 overflow-hidden bg-mrc-yellow">
+                  <div className="mrc-iso-grid absolute inset-0 opacity-70" />
+                  <Isotipo
+                    variant="principal"
+                    className="pointer-events-none absolute -bottom-5 -right-3 h-32 w-auto opacity-[0.18] transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <span className="absolute left-4 top-4 text-[0.62rem] font-black uppercase tracking-wider text-mrc-blue-deep/70">
+                    Método {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <m.icono className="absolute bottom-4 left-4 h-8 w-8 text-mrc-blue-deep" />
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-lg font-bold leading-tight text-white">{m.nombre}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">{m.texto}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ================= AGENDA — claro ================= */}
       <section id="agenda" className="bg-mrc-paper-alt py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="mb-12 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
-              Programa 2026
+              Sesiones {PROGRAMA.anio}
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight text-mrc-blue-deep md:text-5xl">
               Agenda
             </h2>
             <div className="mrc-rule mt-5" />
             <p className="mt-6 text-lg text-mrc-gray">
-              Dieciséis semanas organizadas en cuatro fases. Todos los encuentros son los{' '}
-              <strong className="font-bold text-mrc-blue">lunes de 15:30 a 17:00</strong>.
+              El calendario se ajusta a medida que se confirman invitados y proyectos. Los
+              encuentros son los{' '}
+              <strong className="font-bold text-mrc-blue">
+                {PROGRAMA.dia.toLowerCase()} de {PROGRAMA.horario}
+              </strong>.
             </p>
           </div>
 
@@ -241,6 +461,12 @@ function App() {
                       <Clock className="h-3.5 w-3.5 text-mrc-orange" />
                       {event.time}
                     </span>
+                    {event.room && (
+                      <span className="flex items-center gap-1.5 font-medium">
+                        <MapPin className="h-3.5 w-3.5 text-mrc-orange" />
+                        {event.room}
+                      </span>
+                    )}
                   </div>
 
                   <h3 className="line-clamp-2 text-lg font-bold leading-tight text-mrc-blue-deep transition-colors group-hover:text-mrc-blue">
@@ -433,6 +659,105 @@ function App() {
         </div>
       </section>
 
+      {/* ============ QUÉ TE LLEVAS — claro ============ */}
+      <section id="certificacion" className="bg-mrc-paper-alt py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="mb-14 grid items-end gap-8 lg:grid-cols-[1.2fr_1fr]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
+                Al terminar el semestre
+              </p>
+              <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
+                QUÉ TE LLEVAS
+              </h2>
+              <div className="mrc-rule mt-5" />
+            </div>
+            <div className="relative rounded-2xl bg-mrc-blue-deep p-6 lg:mb-1">
+              <Isotipo
+                variant="blanco"
+                className="pointer-events-none absolute -bottom-3 right-3 h-24 w-auto opacity-[0.08]"
+              />
+              <p className="relative text-sm leading-relaxed text-white/75">
+                La certificación se otorga a quienes sostienen asistencia mínima del 90%,
+                mantienen al día el portafolio de lecturas y completan los entregables.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icono: FileText,
+                titulo: 'Un paper académico',
+                detalle: 'De 15 a 20 páginas en formato journal: marco teórico, metodología, resultados y discusión.',
+                sirve: 'Hoja de vida · coautoría · posgrado',
+                fondo: 'bg-mrc-blue',
+                iso: 'blanco' as const,
+              },
+              {
+                icono: Presentation,
+                titulo: 'Un pitch ejecutivo',
+                detalle: 'Siete minutos: diagnóstico del problema, insights, recomendaciones y visualización de impacto.',
+                sirve: 'Portafolio · entrevistas',
+                fondo: 'bg-mrc-orange',
+                iso: 'blanco' as const,
+              },
+              {
+                icono: ClipboardList,
+                titulo: 'Un póster con defensa',
+                detalle: 'Presentación académica del proyecto y su sustentación oral ante pares.',
+                sirve: 'Congresos · encuentros de semilleros',
+                fondo: 'bg-mrc-blue-deep',
+                iso: 'blanco' as const,
+              },
+              {
+                icono: Users,
+                titulo: 'Una red de trabajo',
+                detalle: 'Contacto directo con profesores investigadores, expertos del mercado y organizaciones aliadas.',
+                sirve: 'Referencias · prácticas · proyectos',
+                fondo: 'bg-mrc-yellow',
+                iso: 'principal' as const,
+              },
+            ].map((e, i) => (
+              <div
+                key={e.titulo}
+                className="hover-lift group flex flex-col overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white shadow-sm transition-colors hover:border-mrc-blue/30"
+              >
+                <div className={`relative h-28 overflow-hidden ${e.fondo}`}>
+                  <div className="mrc-iso-grid absolute inset-0 opacity-80" />
+                  <Isotipo
+                    variant={e.iso}
+                    className="pointer-events-none absolute -bottom-5 -right-3 h-32 w-auto opacity-[0.16] transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <span
+                    className={`absolute left-4 top-4 text-[0.62rem] font-black uppercase tracking-wider ${
+                      e.iso === 'principal' ? 'text-mrc-blue-deep/70' : 'text-white/80'
+                    }`}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <e.icono
+                    className={`absolute bottom-4 left-4 h-8 w-8 ${
+                      e.iso === 'principal' ? 'text-mrc-blue-deep' : 'text-white'
+                    }`}
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-lg font-bold leading-snug text-mrc-blue-deep">
+                    {e.titulo}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-mrc-gray">{e.detalle}</p>
+                  <p className="mt-5 border-t border-mrc-blue/10 pt-4 text-[0.7rem] font-bold uppercase tracking-wide text-mrc-blue">
+                    {e.sirve}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ================= CTA FINAL — amarillo de acento ================= */}
       <section className="bg-mrc-yellow py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-5 text-center sm:px-6">
@@ -543,6 +868,12 @@ function App() {
                 <User className="h-4 w-4 text-mrc-blue" />
                 <span className="font-medium">{selectedEvent?.speaker}</span>
               </div>
+              {selectedEvent?.room && (
+                <div className="flex items-center gap-3 text-mrc-ink">
+                  <MapPin className="h-4 w-4 text-mrc-blue" />
+                  <span className="font-medium">{selectedEvent.room}</span>
+                </div>
+              )}
             </div>
 
             <Button

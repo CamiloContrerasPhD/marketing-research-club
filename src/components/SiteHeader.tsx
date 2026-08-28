@@ -4,8 +4,9 @@ import { Logo } from '@/components/brand/Isotipo';
 import { CLUB_FORM_URL } from '@/data/program';
 
 const NAV_LINKS = [
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#areas', label: 'Dominios' },
   { href: '#agenda', label: 'Agenda' },
-  { href: '#fases', label: 'Fases' },
   { href: '#nosotros', label: 'Nosotros' },
   { href: '#area', label: 'Área de Mercadeo' },
 ];

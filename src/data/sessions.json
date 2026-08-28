@@ -1,0 +1,219 @@
+{
+  "_instrucciones": "Edita este archivo para cambiar el programa. Cada semestre: ajusta 'programa' (dia, horario, anio) y las 'sesiones' de cada fase. El campo 'salon' aparece en el sitio solo si tiene texto. 'modalidad' admite: Presencial, Virtual, Hibrido.",
+  "programa": {
+    "anio": 2026,
+    "dia": "Lunes",
+    "horario": "15:30 - 17:00",
+    "lugar": "Bogotá · presencial y virtual"
+  },
+  "fases": [
+    {
+      "nombre": "Fase 1",
+      "subtitulo": "Fundamentos y Sentidos",
+      "icono": "BookOpen",
+      "acento": "blue",
+      "sesiones": [
+        {
+          "semana": 1,
+          "titulo": "Lanzamiento y Speed Research Dating",
+          "fecha": "Lunes 26 de enero",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Equipo del Club",
+          "modalidad": "Presencial",
+          "descripcion": "Bienvenida al semillero, presentación de objetivos y actividad de networking para conocer a los miembros y formar equipos de investigación.",
+          "imagen": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+        },
+        {
+          "semana": 2,
+          "titulo": "Método Científico en Marketing",
+          "fecha": "Lunes 02 de febrero",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Profesores del Área",
+          "modalidad": "Virtual",
+          "descripcion": "Fundamentos del método científico aplicado a la investigación de mercados. Formulación de preguntas, hipótesis y diseño de estudios.",
+          "imagen": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+        },
+        {
+          "semana": 3,
+          "titulo": "Experimento de Sentidos",
+          "fecha": "Lunes 09 de febrero",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Felipe Reinoso-Carvajal",
+          "modalidad": "Híbrido",
+          "descripcion": "Exploración de la mercadotecnia sensorial y cómo los sentidos influyen en el comportamiento del consumidor. Experiencia práctica incluida.",
+          "imagen": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80"
+        },
+        {
+          "semana": 4,
+          "titulo": "Club de Lectura y Gaps",
+          "fecha": "Lunes 16 de febrero",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Equipo del Club",
+          "modalidad": "Virtual",
+          "descripcion": "Análisis de artículos científicos relevantes e identificación de gaps de investigación para desarrollar proyectos originales.",
+          "imagen": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80"
+        }
+      ]
+    },
+    {
+      "nombre": "Fase 2",
+      "subtitulo": "Datos y Mercado",
+      "icono": "Target",
+      "acento": "blue-light",
+      "sesiones": [
+        {
+          "semana": 5,
+          "titulo": "Enfoque Social en Marketing",
+          "fecha": "Lunes 23 de febrero",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Oscar Naranjo del Giudice",
+          "modalidad": "Virtual",
+          "descripcion": "Perspectivas sobre marketing social, impacto en comunidades y responsabilidad corporativa en la investigación de mercados.",
+          "imagen": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
+        },
+        {
+          "semana": 6,
+          "titulo": "Taller de Análisis Cuantitativo",
+          "fecha": "Lunes 02 de marzo",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Camilo Rojas Contreras",
+          "modalidad": "Presencial",
+          "descripcion": "Taller práctico de herramientas estadísticas para el análisis de datos de mercado. SPSS, R y técnicas de modelado.",
+          "imagen": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+        },
+        {
+          "semana": 7,
+          "titulo": "Consumer Insights",
+          "fecha": "Lunes 09 de marzo",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Consultora en Investigación de Mercados",
+          "modalidad": "Virtual",
+          "descripcion": "Descubrimiento de insights profundos del consumidor mediante técnicas avanzadas de investigación aplicada.",
+          "imagen": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+        },
+        {
+          "semana": 8,
+          "titulo": "Pitch de Ideas de Investigación",
+          "fecha": "Lunes 16 de marzo",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Miembros del Club",
+          "modalidad": "Presencial",
+          "descripcion": "Presentación de propuestas de investigación por parte de los equipos. Feedback constructivo y selección de proyectos.",
+          "imagen": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80"
+        }
+      ]
+    },
+    {
+      "nombre": "Fase 3",
+      "subtitulo": "Profundización",
+      "icono": "Sparkles",
+      "acento": "orange",
+      "sesiones": [
+        {
+          "semana": 9,
+          "titulo": "Marketing de Lujo y Exclusividad",
+          "fecha": "Lunes 23 de marzo",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Aniket Sengupta",
+          "modalidad": "Virtual",
+          "descripcion": "Estrategias de marketing para marcas de lujo, gestión de exclusividad y comportamiento del consumidor de alta gama.",
+          "imagen": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80"
+        },
+        {
+          "semana": 10,
+          "titulo": "Métodos Cualitativos y Mixtos en Marketing",
+          "fecha": "Lunes 30 de marzo",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Andrés Barrios",
+          "modalidad": "Híbrido",
+          "descripcion": "Diseño e implementación de estudios cualitativos y métodos mixtos para investigación de mercados profunda.",
+          "imagen": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80"
+        },
+        {
+          "semana": 11,
+          "titulo": "Avances de Proyectos",
+          "fecha": "Lunes 06 de abril",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Miembros del Club",
+          "modalidad": "Presencial",
+          "descripcion": "Sesión de seguimiento donde cada equipo presenta los avances de su proyecto de investigación y recibe retroalimentación.",
+          "imagen": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80"
+        },
+        {
+          "semana": 12,
+          "titulo": "IA en Investigación",
+          "fecha": "Lunes 13 de abril",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Camilo Rojas Contreras",
+          "modalidad": "Virtual",
+          "descripcion": "Aplicaciones de inteligencia artificial en la investigación de mercados: automatización, análisis predictivo y generación de insights.",
+          "imagen": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
+        }
+      ]
+    },
+    {
+      "nombre": "Fase 4",
+      "subtitulo": "Integración Final",
+      "icono": "Award",
+      "acento": "yellow",
+      "sesiones": [
+        {
+          "semana": 13,
+          "titulo": "Conferencia Tendencias Globales en Investigaciones de Mercado",
+          "fecha": "Lunes 20 de abril",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Consultora en Investigación de Mercados",
+          "modalidad": "Virtual",
+          "descripcion": "Panorama global de las tendencias emergentes en investigación de mercados y su aplicación en contextos latinoamericanos.",
+          "imagen": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80"
+        },
+        {
+          "semana": 14,
+          "titulo": "Comunicación Científica y Diseño",
+          "fecha": "Lunes 27 de abril",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Equipo del Club",
+          "modalidad": "Presencial",
+          "descripcion": "Técnicas de comunicación científica efectiva, diseño de presentaciones y preparación de artículos académicos.",
+          "imagen": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80"
+        },
+        {
+          "semana": 15,
+          "titulo": "Trabajos Generales",
+          "fecha": "Lunes 04 de mayo",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Miembros del Club",
+          "modalidad": "Presencial",
+          "descripcion": "Sesión de trabajo colaborativo para finalizar los proyectos de investigación y preparar las presentaciones finales.",
+          "imagen": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+        },
+        {
+          "semana": 16,
+          "titulo": "DEMO DAY",
+          "fecha": "Lunes 11 de mayo",
+          "hora": "15:30 - 17:00",
+          "salon": "",
+          "ponente": "Miembros del Club + Jurado",
+          "modalidad": "Presencial",
+          "descripcion": "Evento final donde los equipos presentan sus proyectos completos ante un jurado de expertos. Premiación a los mejores trabajos.",
+          "imagen": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80"
+        }
+      ]
+    }
+  ]
+}
