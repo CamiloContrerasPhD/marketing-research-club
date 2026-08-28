@@ -1,1 +1,30 @@
+# Dependencias
+node_modules/
+
+# Compilados
+dist/
+dist-ssr/
+preview-build/
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Editores
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Material de trabajo, no del sitio
 formularios/
