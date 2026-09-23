@@ -171,7 +171,37 @@ function App() {
               </button>
             </div>
 
-            <p className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-white/60">
+            {/* Cápsula de ranking: credencial visible sin competir con el titular */}
+            <a
+              href={QS_RANKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-9 inline-flex flex-wrap items-center gap-x-5 gap-y-2 rounded-2xl border border-mrc-yellow/35 bg-mrc-yellow/[0.09] px-5 py-3.5 transition-colors hover:border-mrc-yellow hover:bg-mrc-yellow/[0.16]"
+            >
+              {[
+                { puesto: '#1', donde: 'Colombia' },
+                { puesto: '#2', donde: 'Latinoamérica' },
+                { puesto: '#43', donde: 'Mundo' },
+              ].map((r, i) => (
+                <span key={r.donde} className="flex items-center gap-5">
+                  {i > 0 && <span className="h-7 w-px bg-mrc-yellow/25" />}
+                  <span className="flex items-baseline gap-1.5">
+                    <span className="text-xl font-black leading-none text-mrc-yellow">
+                      {r.puesto}
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-wide text-white/70">
+                      {r.donde}
+                    </span>
+                  </span>
+                </span>
+              ))}
+              <span className="flex items-center gap-1.5 border-l border-mrc-yellow/25 pl-5 text-[0.7rem] font-bold uppercase tracking-wide text-white/50 transition-colors group-hover:text-mrc-yellow">
+                Marketing QS 2026
+                <ExternalLink className="h-3 w-3" />
+              </span>
+            </a>
+
+            <p className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-white/60">
               <span className="flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-mrc-yellow" /> {PROGRAMA.dia}, {PROGRAMA.horario}
               </span>
