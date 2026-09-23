@@ -69,6 +69,14 @@ export const CLUB_FORM_URL =
  */
 export const SESSION_FORM_URL = '';
 
+/**
+ * Identificador de medición de Google Analytics 4 (formato G-XXXXXXXXXX).
+ *
+ * Es público por diseño: viaja en el HTML y no es un secreto. Déjalo vacío
+ * para desactivar la analítica por completo; el banner tampoco aparecerá.
+ */
+export const GA_MEASUREMENT_ID = 'G-TQV1GV9NDB';
+
 /** Buzón del semillero. */
 export const EMAIL_RECIPIENT = 'semillero_marketing_uniandes@uniandes.onmicrosoft.com';
 

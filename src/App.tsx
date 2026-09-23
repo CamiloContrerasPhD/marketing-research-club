@@ -35,6 +35,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { SiteHeader } from '@/components/SiteHeader';
+import { CookieBanner } from '@/components/CookieBanner';
 import { Isotipo, Logo } from '@/components/brand/Isotipo';
 import {
   AREA_URL,
@@ -820,6 +821,13 @@ function App() {
               <p className="mt-1 text-xs text-white/40">
                 Facultad de Administración · Área de Mercadeo · Bogotá, Colombia
               </p>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('mrc:abrir-cookies'))}
+                className="mt-2 text-xs text-white/40 underline transition-colors hover:text-white/70"
+              >
+                Preferencias de cookies
+              </button>
             </div>
           </div>
         </div>
@@ -989,6 +997,8 @@ function App() {
           )}
         </DialogContent>
       </Dialog>
+
+      <CookieBanner />
     </div>
   );
 }
