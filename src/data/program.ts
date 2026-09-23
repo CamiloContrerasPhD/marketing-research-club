@@ -77,6 +77,13 @@ export const SESSION_FORM_URL = '';
  */
 export const GA_MEASUREMENT_ID = 'G-TQV1GV9NDB';
 
+/** Manual de Política de Tratamiento de Datos Personales de la Universidad. */
+export const POLITICA_DATOS_URL =
+  'https://secretariageneral.uniandes.edu.co/images/documents/Manual-Politica-Tratamiento-Datos-Personales-2020-Uniandes.pdf';
+
+/** Portal institucional de uso de datos personales. */
+export const PORTAL_DATOS_URL = 'https://usodedatospersonales.uniandes.edu.co/es/';
+
 /** Buzón del semillero. */
 export const EMAIL_RECIPIENT = 'semillero_marketing_uniandes@uniandes.onmicrosoft.com';
 

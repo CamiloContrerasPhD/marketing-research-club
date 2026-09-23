@@ -6,7 +6,7 @@ import {
   guardarConsentimiento,
   leerConsentimiento,
 } from '@/lib/analytics';
-import { EMAIL_RECIPIENT } from '@/data/program';
+import { POLITICA_DATOS_URL, PORTAL_DATOS_URL } from '@/data/program';
 
 /**
  * Banner de consentimiento de cookies.
@@ -58,12 +58,27 @@ export function CookieBanner() {
           <p className="mt-1.5 text-sm leading-relaxed text-mrc-gray">
             Nos sirven para saber cuánta gente visita el sitio y qué secciones
             consulta. No las activamos sin tu permiso y no las usamos para
-            publicidad. Puedes cambiar de opinión cuando quieras, o escribirnos a{' '}
+            publicidad. Puedes cambiar de opinión cuando quieras.
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-mrc-gray">
+            El tratamiento se rige por la{' '}
             <a
-              href={`mailto:${EMAIL_RECIPIENT}`}
+              href={POLITICA_DATOS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-semibold text-mrc-blue underline"
             >
-              el correo del semillero
+              Política de Tratamiento de Datos Personales
+            </a>{' '}
+            de la Universidad de los Andes. Conoce tus derechos de consulta,
+            rectificación y supresión en el{' '}
+            <a
+              href={PORTAL_DATOS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-mrc-blue underline"
+            >
+              portal de datos personales
             </a>
             .
           </p>
