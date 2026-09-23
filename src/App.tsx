@@ -660,8 +660,8 @@ function App() {
                   <p className="text-xs font-medium text-white/60">Colombia</p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/[0.06] p-4 text-center">
-                  <p className="text-2xl font-black text-mrc-yellow">#43</p>
-                  <p className="text-xs font-medium text-white/60">En el mundo</p>
+                  <p className="text-2xl font-black text-mrc-yellow">#2</p>
+                  <p className="text-xs font-medium text-white/60">En Latinoamérica</p>
                 </div>
               </div>
 
