@@ -42,6 +42,7 @@ import {
   CLUB_FORM_URL,
   EMAIL_RECIPIENT,
   PROGRAMA,
+  QS_RANKING_URL,
   allEvents,
   phases,
   type ProgramEvent,
@@ -578,14 +579,23 @@ function App() {
                   className="hover-zoom h-full w-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-4 rounded-2xl bg-mrc-yellow p-6 shadow-brand sm:-left-6">
+              <a
+                href={QS_RANKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group absolute -bottom-6 -left-4 rounded-2xl bg-mrc-yellow p-6 shadow-brand transition-colors hover:bg-mrc-yellow-deep sm:-left-6"
+              >
                 <p className="text-3xl font-black text-mrc-blue-deep">#1</p>
                 <p className="mt-1 text-xs font-bold uppercase leading-tight tracking-wide text-mrc-blue-deep/75">
                   En Colombia
                   <br />
-                  QS Ranking 2025
+                  Marketing QS 2026
                 </p>
-              </div>
+                <span className="mt-2 inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide text-mrc-blue-deep/60 group-hover:text-mrc-blue-deep">
+                  Ver ranking
+                  <ExternalLink className="h-3 w-3" />
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -605,14 +615,23 @@ function App() {
                   className="hover-zoom h-full w-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-4 rounded-2xl border border-mrc-yellow/30 bg-mrc-blue-ink p-6 shadow-brand sm:-right-6">
-                <p className="text-3xl font-black text-mrc-yellow">Top 51-100</p>
+              <a
+                href={QS_RANKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group absolute -bottom-6 -right-4 rounded-2xl border border-mrc-yellow/30 bg-mrc-blue-ink p-6 shadow-brand transition-colors hover:border-mrc-yellow sm:-right-6"
+              >
+                <p className="text-4xl font-black text-mrc-yellow">#43</p>
                 <p className="mt-1 text-xs font-bold uppercase leading-tight tracking-wide text-white/65">
                   En el mundo
                   <br />
-                  Marketing QS 2025
+                  Marketing QS 2026
                 </p>
-              </div>
+                <span className="mt-2 inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide text-white/45 group-hover:text-mrc-yellow">
+                  Ver ranking
+                  <ExternalLink className="h-3 w-3" />
+                </span>
+              </a>
             </div>
 
             <div className="order-1 lg:order-2">
@@ -641,8 +660,8 @@ function App() {
                   <p className="text-xs font-medium text-white/60">Colombia</p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/[0.06] p-4 text-center">
-                  <p className="text-2xl font-black text-mrc-yellow">#4</p>
-                  <p className="text-xs font-medium text-white/60">Latinoamérica</p>
+                  <p className="text-2xl font-black text-mrc-yellow">#43</p>
+                  <p className="text-xs font-medium text-white/60">En el mundo</p>
                 </div>
               </div>
 

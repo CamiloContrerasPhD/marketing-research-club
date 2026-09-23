@@ -87,6 +87,10 @@ export const PORTAL_DATOS_URL = 'https://usodedatospersonales.uniandes.edu.co/es
 /** Buzón del semillero. */
 export const EMAIL_RECIPIENT = 'semillero_marketing_uniandes@uniandes.onmicrosoft.com';
 
+/** Ranking QS por materia en Marketing, filtrado por Colombia. */
+export const QS_RANKING_URL =
+  'https://www.topuniversities.com/university-subject-rankings/marketing?countries=co';
+
 export const AREA_URL =
   'https://administracion.uniandes.edu.co/profesores/areas-academicas/mercadeo/';
 
