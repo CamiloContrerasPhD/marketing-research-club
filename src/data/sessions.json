@@ -1,10 +1,28 @@
 {
-  "_instrucciones": "Edita este archivo para cambiar el programa. Cada semestre: ajusta 'programa' (dia, horario, anio) y las 'sesiones' de cada fase. El campo 'salon' aparece en el sitio solo si tiene texto. 'modalidad' admite: Presencial, Virtual, Hibrido.",
+  "_instrucciones": "Edita este archivo para cambiar el programa y las credenciales. Cada semestre: ajusta 'programa' (dia, horario, anio) y las 'sesiones' de cada fase. El bloque 'ranking' alimenta la capsula del inicio y las tarjetas de Nosotros y Area; cambialo aqui una vez al ano y se actualiza en los tres lugares. El campo 'salon' aparece en el sitio solo si tiene texto. 'modalidad' admite: Presencial, Virtual, Hibrido.",
   "programa": {
     "anio": 2026,
     "dia": "Lunes",
     "horario": "15:30 - 17:00",
     "lugar": "Bogotá · presencial y virtual"
+  },
+  "ranking": {
+    "fuente": "Marketing QS 2026",
+    "url": "https://www.topuniversities.com/university-subject-rankings/marketing?countries=co",
+    "posiciones": [
+      {
+        "puesto": "#1",
+        "donde": "Colombia"
+      },
+      {
+        "puesto": "#2",
+        "donde": "Latinoamérica"
+      },
+      {
+        "puesto": "#43",
+        "donde": "Mundo"
+      }
+    ]
   },
   "fases": [
     {

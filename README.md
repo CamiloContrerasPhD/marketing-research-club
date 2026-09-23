@@ -3,7 +3,7 @@
 Sitio web del **Marketing Research Club**, semillero de investigación del Área de
 Mercadeo de la Facultad de Administración de la Universidad de los Andes.
 
-Publica el calendario del programa (16 semanas en 4 fases), la información del
+Publica el calendario del programa (sesiones organizadas en 4 fases), la información del
 semillero y los formularios de inscripción.
 
 ## Identidad de marca

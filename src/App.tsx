@@ -43,6 +43,7 @@ import {
   EMAIL_RECIPIENT,
   PROGRAMA,
   QS_RANKING_URL,
+  RANKING,
   allEvents,
   phases,
   type ProgramEvent,
@@ -146,9 +147,9 @@ function App() {
               para <span className="mrc-highlight text-white">Decisiones en Marketing</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium text-white/75 sm:text-xl">
-              Semillero de investigación del Área de Mercadeo. Dieciséis semanas para
-              aprender a plantear preguntas de negocio con rigor científico, medirlas y
-              traducir la evidencia en estrategia.
+              Semillero de investigación del Área de Mercadeo. Un espacio de interacción
+              y aprendizaje continuos para plantear preguntas de negocio con rigor
+              científico, medirlas y traducir la evidencia en estrategia.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -178,11 +179,7 @@ function App() {
               rel="noopener noreferrer"
               className="group mt-9 inline-flex flex-wrap items-center gap-x-5 gap-y-2 rounded-2xl border border-mrc-yellow/35 bg-mrc-yellow/[0.09] px-5 py-3.5 transition-colors hover:border-mrc-yellow hover:bg-mrc-yellow/[0.16]"
             >
-              {[
-                { puesto: '#1', donde: 'Colombia' },
-                { puesto: '#2', donde: 'Latinoamérica' },
-                { puesto: '#43', donde: 'Mundo' },
-              ].map((r, i) => (
+              {RANKING.posiciones.map((r, i) => (
                 <span key={r.donde} className="flex items-center gap-5">
                   {i > 0 && <span className="h-7 w-px bg-mrc-yellow/25" />}
                   <span className="flex items-baseline gap-1.5">
@@ -196,7 +193,7 @@ function App() {
                 </span>
               ))}
               <span className="flex items-center gap-1.5 border-l border-mrc-yellow/25 pl-5 text-[0.7rem] font-bold uppercase tracking-wide text-white/50 transition-colors group-hover:text-mrc-yellow">
-                Marketing QS 2026
+                {RANKING.fuente}
                 <ExternalLink className="h-3 w-3" />
               </span>
             </a>
@@ -615,11 +612,13 @@ function App() {
                 rel="noopener noreferrer"
                 className="group absolute -bottom-6 -left-4 rounded-2xl bg-mrc-yellow p-6 shadow-brand transition-colors hover:bg-mrc-yellow-deep sm:-left-6"
               >
-                <p className="text-3xl font-black text-mrc-blue-deep">#1</p>
+                <p className="text-3xl font-black text-mrc-blue-deep">
+                  {RANKING.posiciones[0].puesto}
+                </p>
                 <p className="mt-1 text-xs font-bold uppercase leading-tight tracking-wide text-mrc-blue-deep/75">
-                  En Colombia
+                  {RANKING.posiciones[0].donde}
                   <br />
-                  Marketing QS 2026
+                  {RANKING.fuente}
                 </p>
                 <span className="mt-2 inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide text-mrc-blue-deep/60 group-hover:text-mrc-blue-deep">
                   Ver ranking
@@ -651,11 +650,13 @@ function App() {
                 rel="noopener noreferrer"
                 className="group absolute -bottom-6 -right-4 rounded-2xl border border-mrc-yellow/30 bg-mrc-blue-ink p-6 shadow-brand transition-colors hover:border-mrc-yellow sm:-right-6"
               >
-                <p className="text-4xl font-black text-mrc-yellow">#43</p>
+                <p className="text-4xl font-black text-mrc-yellow">
+                  {RANKING.posiciones[2].puesto}
+                </p>
                 <p className="mt-1 text-xs font-bold uppercase leading-tight tracking-wide text-white/65">
-                  En el mundo
+                  {RANKING.posiciones[2].donde}
                   <br />
-                  Marketing QS 2026
+                  {RANKING.fuente}
                 </p>
                 <span className="mt-2 inline-flex items-center gap-1 text-[0.65rem] font-bold uppercase tracking-wide text-white/45 group-hover:text-mrc-yellow">
                   Ver ranking
@@ -685,14 +686,15 @@ function App() {
               </p>
 
               <div className="mt-8 grid max-w-sm grid-cols-2 gap-4">
-                <div className="rounded-xl border border-white/10 bg-white/[0.06] p-4 text-center">
-                  <p className="text-2xl font-black text-mrc-yellow">#1</p>
-                  <p className="text-xs font-medium text-white/60">Colombia</p>
-                </div>
-                <div className="rounded-xl border border-white/10 bg-white/[0.06] p-4 text-center">
-                  <p className="text-2xl font-black text-mrc-yellow">#2</p>
-                  <p className="text-xs font-medium text-white/60">En Latinoamérica</p>
-                </div>
+                {RANKING.posiciones.slice(0, 2).map((r) => (
+                  <div
+                    key={r.donde}
+                    className="rounded-xl border border-white/10 bg-white/[0.06] p-4 text-center"
+                  >
+                    <p className="text-2xl font-black text-mrc-yellow">{r.puesto}</p>
+                    <p className="text-xs font-medium text-white/60">{r.donde}</p>
+                  </div>
+                ))}
               </div>
 
               <a
@@ -816,8 +818,8 @@ function App() {
             Únete a la comunidad
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg font-medium text-mrc-blue-deep/75">
-            Dieciséis semanas de formación, networking y proyectos de investigación
-            aplicada. Abierto a estudiantes de todas las carreras.
+            Formación continua, networking y proyectos de investigación aplicada.
+            Abierto a estudiantes de todas las carreras.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <a

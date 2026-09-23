@@ -32,6 +32,15 @@ export interface Phase {
   events: ProgramEvent[];
 }
 
+/**
+ * Posiciones en el ranking, editables en sessions.json.
+ *
+ * Alimentan la cápsula del inicio y las tarjetas de Nosotros y Área de
+ * Mercadeo. Antes estaban escritas a mano en los tres sitios, y cuando cambió
+ * la edición del ranking quedaron cifras viejas sin actualizar.
+ */
+export const RANKING = datos.ranking;
+
 /** Datos generales del semestre, editables en sessions.json. */
 export const PROGRAMA = datos.programa;
 
@@ -87,9 +96,8 @@ export const PORTAL_DATOS_URL = 'https://usodedatospersonales.uniandes.edu.co/es
 /** Buzón del semillero. */
 export const EMAIL_RECIPIENT = 'semillero_marketing_uniandes@uniandes.onmicrosoft.com';
 
-/** Ranking QS por materia en Marketing, filtrado por Colombia. */
-export const QS_RANKING_URL =
-  'https://www.topuniversities.com/university-subject-rankings/marketing?countries=co';
+/** Ranking QS por materia en Marketing. Se edita en sessions.json. */
+export const QS_RANKING_URL = datos.ranking.url;
 
 export const AREA_URL =
   'https://administracion.uniandes.edu.co/profesores/areas-academicas/mercadeo/';
