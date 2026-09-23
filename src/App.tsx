@@ -757,9 +757,9 @@ function App() {
               </h4>
               <div className="mrc-rule mt-5" />
               <p className="mt-6 text-base leading-relaxed text-mrc-gray">
-                El MACC es un grupo enfocado en mercadeo de la Universidad, fundado 
-                y gestionado por estudiantes del pregrado en Administración. Donde el semillero
-                investiga, el MACC ejercita.
+                El MACC es un grupo enfocado en mercadeo, fundado 
+                y gestionado por estudiantes del pregrado en Administración en la Universidad de los Andes. 
+                <strong> Donde el semillero investiga, el MACC ejercita</strong>.
               </p>
               <p className="mt-3 text-base leading-relaxed text-mrc-gray">
                 Abierto a toda la comunidad uniandina. Las
