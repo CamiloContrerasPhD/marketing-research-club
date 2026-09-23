@@ -44,6 +44,7 @@ import {
   CLUB_FORM_URL,
   EMAIL_RECIPIENT,
   PROGRAMA,
+  ALIADOS,
   MACC,
   QS_RANKING_URL,
   RANKING,
@@ -897,6 +898,44 @@ function App() {
                     {e.sirve}
                   </p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= ALIADOS — banda clara, cierre de credibilidad ================= */}
+      <section id="aliados" className="border-t border-mrc-blue/10 bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="grid items-end gap-6 lg:grid-cols-[1.1fr_1fr]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
+                Aliados
+              </p>
+              <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
+                LA INDUSTRIA, CERCA
+              </h2>
+              <div className="mrc-rule mt-5" />
+            </div>
+            <p className="text-base leading-relaxed text-mrc-gray lg:mb-1">
+              Firmas de investigación de mercados e instituciones del gremio con las que
+              el Research Club mantiene relación.
+            </p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-mrc-blue/10 bg-mrc-blue/10 sm:grid-cols-3 lg:grid-cols-5">
+            {ALIADOS.map((aliado) => (
+              <div
+                key={aliado.archivo}
+                className="group flex items-center justify-center bg-white px-5 py-8 transition-colors hover:bg-mrc-paper-alt"
+                title={aliado.nombre}
+              >
+                <img
+                  src={`./brand/aliados/${aliado.archivo}.png`}
+                  alt={aliado.nombre}
+                  loading="lazy"
+                  className="h-10 w-auto max-w-full object-contain opacity-60 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 sm:h-12"
+                />
               </div>
             ))}
           </div>

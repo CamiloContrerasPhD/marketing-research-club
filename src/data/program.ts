@@ -113,6 +113,36 @@ export const MACC = {
   nota: 'https://administracion.uniandes.edu.co/noticias/marketing-and-creativity-club-primer-grupo-estudiantil-de-mercadeo-de-los-andes/',
 };
 
+/**
+ * Aliados del semillero: firmas de investigación de mercados y el gremio.
+ *
+ * Para sumar o quitar uno, deja el logo en `public/brand/aliados/` recortado
+ * sobre fondo blanco y agrega o borra una línea aquí. La retícula se reacomoda
+ * sola; el tamaño lo iguala el CSS, no el archivo.
+ */
+export const ALIADOS: { nombre: string; archivo: string }[] = [
+  { nombre: 'ACEI', archivo: 'acei' },
+  { nombre: 'Brandstrat', archivo: 'brandstrat' },
+  { nombre: 'B&Optimos', archivo: 'boptimos' },
+  { nombre: 'Centro Nacional de Consultoría', archivo: 'cnc' },
+  { nombre: 'Cifras & Conceptos', archivo: 'cifras-y-conceptos' },
+  { nombre: 'Consenso Investigaciones', archivo: 'consenso' },
+  { nombre: 'Netquest', archivo: 'netquest' },
+  { nombre: 'Metis', archivo: 'metis' },
+  { nombre: 'Provokers', archivo: 'provokers' },
+  { nombre: 'Inspira Research', archivo: 'inspira' },
+  { nombre: 'Invamer', archivo: 'invamer' },
+  { nombre: 'Ipsos', archivo: 'ipsos' },
+  { nombre: 'Marketteam', archivo: 'marketteam' },
+  { nombre: 'Target Insights', archivo: 'target-insights' },
+  { nombre: 'NIQ', archivo: 'niq' },
+  { nombre: 'Offerwise', archivo: 'offerwise' },
+  { nombre: 'Gloria Gallego Sigmados', archivo: 'sigmados' },
+  { nombre: 'Sinnetic', archivo: 'sinnetic' },
+  { nombre: 'Insights & Archetypes', archivo: 'insights-archetypes' },
+  { nombre: 'Yanhaas', archivo: 'yanhaas' },
+];
+
 export const phases: Phase[] = datos.fases.map((fase, indiceFase) => ({
   name: fase.nombre,
   subtitle: fase.subtitulo,
