@@ -757,13 +757,12 @@ function App() {
               </h4>
               <div className="mrc-rule mt-5" />
               <p className="mt-6 text-base leading-relaxed text-mrc-gray">
-                El primer grupo estudiantil de mercadeo de la Universidad, fundado en 2024
+                El MACC es un grupo estudiantil de mercadeo de la Universidad, fundado 
                 por estudiantes del pregrado en Administración. Donde el semillero
-                investiga, el MACC ejercita: casos, conversaciones con quienes dirigen el
-                mercadeo en la industria y consultoría a empresas reales.
+                investiga, el MACC ejercita.
               </p>
               <p className="mt-3 text-base leading-relaxed text-mrc-gray">
-                Abierto a toda la comunidad uniandina, sin importar la carrera. Las
+                Abierto a toda la comunidad uniandina. Las
                 inscripciones se abren al comienzo de cada semestre.
               </p>
 
