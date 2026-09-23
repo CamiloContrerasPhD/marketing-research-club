@@ -102,6 +102,17 @@ export const QS_RANKING_URL = datos.ranking.url;
 export const AREA_URL =
   'https://administracion.uniandes.edu.co/profesores/areas-academicas/mercadeo/';
 
+/**
+ * Marketing and Creativity Club (MACC): el grupo estudiantil de mercadeo de la
+ * Facultad. Es otra puerta de entrada al marketing en Uniandes, distinta del
+ * semillero, y se enlaza desde la sección "Otras cosas que debes conocer".
+ */
+export const MACC = {
+  linkedin: 'https://www.linkedin.com/company/macc-uniandes/',
+  instagram: 'https://www.instagram.com/maccuniandes/',
+  nota: 'https://administracion.uniandes.edu.co/noticias/marketing-and-creativity-club-primer-grupo-estudiantil-de-mercadeo-de-los-andes/',
+};
+
 export const phases: Phase[] = datos.fases.map((fase, indiceFase) => ({
   name: fase.nombre,
   subtitle: fase.subtitulo,

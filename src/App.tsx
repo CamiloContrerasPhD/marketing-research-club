@@ -20,6 +20,8 @@ import {
   CheckCircle,
   Clock,
   ExternalLink,
+  Instagram,
+  Linkedin,
   Mail,
   MapPin,
   Send,
@@ -42,6 +44,7 @@ import {
   CLUB_FORM_URL,
   EMAIL_RECIPIENT,
   PROGRAMA,
+  MACC,
   QS_RANKING_URL,
   RANKING,
   allEvents,
@@ -708,6 +711,97 @@ function App() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ====== OTRAS COSAS QUE DEBES CONOCER — subsección del Área ====== */}
+      <section
+        id="tambien-en-la-facultad"
+        className="relative overflow-hidden bg-mrc-blue-ink py-16 sm:py-20"
+      >
+        <div className="mrc-iso-grid absolute inset-0 opacity-40" />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-yellow">
+                También en la Facultad
+              </p>
+              <h3 className="mt-3 text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl">
+                Otras cosas que debes conocer
+                <br className="hidden sm:block" /> de marketing en la Facultad
+              </h3>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed text-white/55">
+              El semillero no es la única puerta de entrada. Estos son los espacios
+              vecinos donde el mercadeo también se vive.
+            </p>
+          </div>
+
+          {/* Tarjeta MACC: el rosa de su marca entra como acento, no como ruido. */}
+          <article className="mt-10 overflow-hidden rounded-2xl bg-white shadow-brand sm:grid sm:grid-cols-[14rem_1fr]">
+            <div className="flex items-center justify-center bg-[#ef4164] py-10 sm:py-0">
+              <img
+                src="./brand/macc.png"
+                alt="Logo del Marketing and Creativity Club"
+                loading="lazy"
+                className="h-28 w-28 sm:h-32 sm:w-32"
+              />
+            </div>
+
+            <div className="p-7 sm:p-9">
+              <p className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-mrc-gray">
+                Grupo estudiantil · MACC
+              </p>
+              <h4 className="mt-2 text-2xl font-black leading-tight tracking-tight text-mrc-blue-deep sm:text-3xl">
+                Marketing and Creativity Club
+              </h4>
+              <div className="mrc-rule mt-5" />
+              <p className="mt-6 text-base leading-relaxed text-mrc-gray">
+                El primer grupo estudiantil de mercadeo de la Universidad, fundado en 2024
+                por estudiantes del pregrado en Administración. Donde el semillero
+                investiga, el MACC ejercita: casos, conversaciones con quienes dirigen el
+                mercadeo en la industria y consultoría a empresas reales.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-mrc-gray">
+                Abierto a toda la comunidad uniandina, sin importar la carrera. Las
+                inscripciones se abren al comienzo de cada semestre.
+              </p>
+
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {['Estudios de caso', 'Conferencias con la industria', 'Networking', 'Consultoría'].map(
+                  (item) => (
+                    <li
+                      key={item}
+                      className="rounded-full border border-[#ef4164]/25 bg-[#ef4164]/[0.07] px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-[#c62a4c]"
+                    >
+                      {item}
+                    </li>
+                  ),
+                )}
+              </ul>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={MACC.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-reveal inline-flex items-center justify-center gap-2 rounded-xl bg-[#ef4164] px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#d62f4f]"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  Conocer el MACC
+                </a>
+                <a
+                  href={MACC.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-mrc-blue/15 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-mrc-blue transition-colors hover:border-mrc-blue hover:bg-mrc-blue hover:text-white"
+                >
+                  <Instagram className="h-4 w-4" />
+                  @maccuniandes
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
