@@ -38,6 +38,7 @@ import {
 } from '@/components/ui/dialog';
 import { SiteHeader } from '@/components/SiteHeader';
 import { CookieBanner } from '@/components/CookieBanner';
+import { LogoFacultad } from '@/components/brand/LogoFacultad';
 import { Isotipo, Logo } from '@/components/brand/Isotipo';
 import {
   AREA_URL,
@@ -45,6 +46,7 @@ import {
   EMAIL_RECIPIENT,
   PROGRAMA,
   ALIADOS,
+  FACULTAD_URL,
   MACC,
   QS_RANKING_URL,
   RANKING,
@@ -143,7 +145,14 @@ function App() {
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-20 pt-32 sm:px-6 lg:pt-36">
           <div className="max-w-3xl animate-fade-in-up">
             <p className="mb-5 text-[0.7rem] font-bold uppercase tracking-[0.28em] text-mrc-yellow sm:text-xs">
-              Facultad de Administración · Universidad de los Andes
+              <a
+                href={FACULTAD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-4 transition-colors hover:text-white hover:underline"
+              >
+                Facultad de Administración · Universidad de los Andes
+              </a>
             </p>
             <h1 className="text-[2.6rem] font-black leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
               Investigación Científica
@@ -151,7 +160,8 @@ function App() {
               para <span className="mrc-highlight text-white">Decisiones en Marketing</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg font-medium text-white/75 sm:text-xl">
-              Semillero de investigación del Área de Mercadeo. Un espacio de interacción
+              Semillero de investigación del Área de Mercadeo. 
+              Un espacio de interacción
               y aprendizaje continuos para plantear preguntas de negocio con rigor
               científico, medirlas y traducir la evidencia en estrategia.
             </p>
@@ -701,15 +711,26 @@ function App() {
                 ))}
               </div>
 
-              <a
-                href={AREA_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-mrc-yellow px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-mrc-blue-deep transition-colors hover:bg-mrc-yellow-deep"
-              >
-                Visitar Área de Mercadeo
-                <ExternalLink className="h-4 w-4" />
-              </a>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={AREA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-mrc-yellow px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-mrc-blue-deep transition-colors hover:bg-mrc-yellow-deep"
+                >
+                  Visitar Área de Mercadeo
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+                <a
+                  href={FACULTAD_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/25 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-white hover:bg-white hover:text-mrc-blue-deep"
+                >
+                  Conoce la Facultad
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -982,11 +1003,15 @@ function App() {
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
               <Logo markClassName="h-11" />
               <span className="hidden h-10 w-px bg-white/15 sm:block" />
-              <img
-                src="./logo-universidad.png"
-                alt="Universidad de los Andes"
-                className="h-9 w-auto object-contain opacity-80"
-              />
+              <a
+                href={FACULTAD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Conoce la Facultad de Administración"
+                className="text-white opacity-85 transition-opacity hover:opacity-100"
+              >
+                <LogoFacultad className="h-10 w-auto" />
+              </a>
             </div>
             <div className="text-center md:text-right">
               <a
@@ -1002,7 +1027,16 @@ function App() {
                 © 2026 Marketing Research Club · Universidad de los Andes
               </p>
               <p className="mt-1 text-xs text-white/40">
-                Facultad de Administración · Área de Mercadeo · Bogotá, Colombia
+                Semillero del Área de Mercadeo ·{' '}
+                <a
+                  href={FACULTAD_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-white/80"
+                >
+                  Facultad de Administración
+                </a>{' '}
+                · Bogotá, Colombia
               </p>
               <button
                 type="button"

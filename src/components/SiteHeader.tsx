@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ExternalLink, Menu, X } from 'lucide-react';
 import { Logo } from '@/components/brand/Isotipo';
-import { CLUB_FORM_URL } from '@/data/program';
+import { LogoFacultad } from '@/components/brand/LogoFacultad';
+import { CLUB_FORM_URL, FACULTAD_URL } from '@/data/program';
 
 const NAV_LINKS = [
   { href: '#como-funciona', label: 'Cómo funciona' },
@@ -59,17 +60,36 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 sm:px-6">
-        <a
-          href="#top"
-          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mrc-yellow focus-visible:ring-offset-2"
-          aria-label="Marketing Research Club — inicio"
-        >
-          <Logo
-            variant={solid ? 'secundaria' : 'blanco'}
-            tone={solid ? 'ink' : 'blanco'}
-            markClassName={solid ? 'h-9' : 'h-10'}
+        {/* Co-marca: el club y, separado por un filete, la Facultad a la que pertenece.
+            En pantallas estrechas la Facultad pasa al menú móvil y al footer. */}
+        <div className="flex items-center gap-5">
+          <a
+            href="#top"
+            className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mrc-yellow focus-visible:ring-offset-2"
+            aria-label="Marketing Research Club — inicio"
+          >
+            <Logo
+              variant={solid ? 'secundaria' : 'blanco'}
+              tone={solid ? 'ink' : 'blanco'}
+              markClassName={solid ? 'h-9' : 'h-10'}
+            />
+          </a>
+          <span
+            aria-hidden="true"
+            className={`hidden h-8 w-px xl:block ${solid ? 'bg-mrc-ink/15' : 'bg-white/25'}`}
           />
-        </a>
+          <a
+            href={FACULTAD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Conoce la Facultad de Administración"
+            className={`hidden rounded-md transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mrc-yellow xl:block ${
+              solid ? 'text-neutral-900 opacity-85' : 'text-white opacity-85'
+            }`}
+          >
+            <LogoFacultad className={`w-auto transition-[height] duration-300 ${solid ? 'h-7' : 'h-8'}`} />
+          </a>
+        </div>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Principal">
           {NAV_LINKS.map((link) => (
@@ -137,6 +157,16 @@ export function SiteHeader() {
           >
             Únete al Club
             <ExternalLink className="h-4 w-4" />
+          </a>
+          <a
+            href={FACULTAD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="mt-4 flex justify-center border-t border-mrc-blue/10 pt-4 text-neutral-900"
+            aria-label="Conoce la Facultad de Administración"
+          >
+            <LogoFacultad className="h-7 w-auto" />
           </a>
         </nav>
       </div>

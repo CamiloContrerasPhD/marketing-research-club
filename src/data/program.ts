@@ -99,6 +99,9 @@ export const EMAIL_RECIPIENT = 'semillero_marketing_uniandes@uniandes.onmicrosof
 /** Ranking QS por materia en Marketing. Se edita en sessions.json. */
 export const QS_RANKING_URL = datos.ranking.url;
 
+/** Facultad de Administración: a dónde lleva su logo en el header y el footer. */
+export const FACULTAD_URL = 'https://administracion.uniandes.edu.co/programas/pregrados/';
+
 export const AREA_URL =
   'https://administracion.uniandes.edu.co/profesores/areas-academicas/mercadeo/';
 
