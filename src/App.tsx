@@ -1001,7 +1001,10 @@ function App() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
-              <Logo markClassName="h-11" />
+              {/* Blanco sobre el azul tinta: la paleta principal (azules) y el texto
+                  oscuro desaparecían contra este fondo. Queda a juego con la
+                  Facultad, que también va en blanco. */}
+              <Logo variant="blanco" tone="blanco" markClassName="h-12" />
               <span className="hidden h-10 w-px bg-white/15 sm:block" />
               <a
                 href={FACULTAD_URL}
