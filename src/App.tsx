@@ -56,6 +56,32 @@ import {
   type SessionType,
 } from '@/data/program';
 
+/**
+ * En pantallas pequeñas las retículas de tarjetas se vuelven carruseles
+ * deslizables: en vez de apilar 16 sesiones o 7 dominios en una columna
+ * interminable de texto, se ve una tarjeta completa con su imagen y el borde de
+ * la siguiente, que invita a deslizar. Desde md vuelven a ser retícula.
+ */
+const CARRUSEL =
+  '-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-6 pt-2 no-scrollbar sm:-mx-6 sm:scroll-px-6 sm:px-6 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0';
+const CARRUSEL_ITEM = 'w-[84%] shrink-0 snap-start sm:w-[58%] md:w-auto';
+
+/** Pista de deslizamiento: solo en móvil, junto al contador de tarjetas. */
+function Desliza({ total, oscuro = false }: { total: number; oscuro?: boolean }) {
+  return (
+    <p
+      className={`mb-3 flex items-center justify-between text-[0.68rem] font-bold uppercase tracking-[0.18em] md:hidden ${
+        oscuro ? 'text-white/55' : 'text-mrc-blue/60'
+      }`}
+    >
+      <span>{total} en total</span>
+      <span className="flex items-center gap-1.5">
+        Desliza <ArrowRight className="h-3.5 w-3.5 animate-pulse" />
+      </span>
+    </p>
+  );
+}
+
 /** Cromática de las etiquetas de modalidad, sobre la paleta oficial. */
 const TYPE_STYLES: Record<SessionType, string> = {
   Virtual: 'bg-mrc-blue/10 text-mrc-blue border-mrc-blue/20',
@@ -139,7 +165,7 @@ function App() {
         {/* Isotipo gigante como elemento gráfico */}
         <Isotipo
           variant="blanco"
-          className="pointer-events-none absolute -right-10 bottom-0 hidden h-[78%] w-auto opacity-[0.07] lg:block"
+          className="pointer-events-none absolute -right-16 bottom-0 h-[40%] w-auto opacity-[0.06] sm:h-[55%] lg:-right-10 lg:h-[78%] lg:opacity-[0.07]"
         />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-20 pt-32 sm:px-6 lg:pt-36">
@@ -159,7 +185,7 @@ function App() {
               <br />
               para <span className="mrc-highlight text-white">Decisiones en Marketing</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg font-medium text-white/75 sm:text-xl">
+            <p className="mt-6 max-w-xl text-base font-medium text-white/75 sm:text-xl">
               Semillero de investigación del Área de Mercadeo. 
               Un espacio de interacción
               y aprendizaje continuos para plantear preguntas de negocio con rigor
@@ -191,22 +217,22 @@ function App() {
               href={QS_RANKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-9 inline-flex flex-wrap items-center gap-x-5 gap-y-2 rounded-2xl border border-mrc-yellow/35 bg-mrc-yellow/[0.09] px-5 py-3.5 transition-colors hover:border-mrc-yellow hover:bg-mrc-yellow/[0.16]"
+              className="group mt-9 grid w-full grid-cols-3 items-center gap-y-3 rounded-2xl sm:inline-flex sm:w-auto sm:flex-wrap sm:gap-x-5 sm:gap-y-2 border border-mrc-yellow/35 bg-mrc-yellow/[0.09] px-5 py-3.5 transition-colors hover:border-mrc-yellow hover:bg-mrc-yellow/[0.16]"
             >
               {RANKING.posiciones.map((r, i) => (
-                <span key={r.donde} className="flex items-center gap-5">
-                  {i > 0 && <span className="h-7 w-px bg-mrc-yellow/25" />}
-                  <span className="flex items-baseline gap-1.5">
-                    <span className="text-xl font-black leading-none text-mrc-yellow">
+                <span key={r.donde} className="flex items-center justify-center gap-5">
+                  {i > 0 && <span className="hidden h-7 w-px bg-mrc-yellow/25 sm:block" />}
+                  <span className="flex flex-col items-center gap-1 sm:flex-row sm:items-baseline sm:gap-1.5">
+                    <span className="text-2xl font-black leading-none text-mrc-yellow sm:text-xl">
                       {r.puesto}
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-wide text-white/70">
+                    <span className="text-[0.65rem] font-bold uppercase tracking-wide text-white/70 sm:text-xs">
                       {r.donde}
                     </span>
                   </span>
                 </span>
               ))}
-              <span className="flex items-center gap-1.5 border-l border-mrc-yellow/25 pl-5 text-[0.7rem] font-bold uppercase tracking-wide text-white/50 transition-colors group-hover:text-mrc-yellow">
+              <span className="col-span-3 flex items-center justify-center gap-1.5 border-t border-mrc-yellow/20 pt-3 text-[0.7rem] sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0 font-bold uppercase tracking-wide text-white/50 transition-colors group-hover:text-mrc-yellow">
                 {RANKING.fuente}
                 <ExternalLink className="h-3 w-3" />
               </span>
@@ -250,19 +276,19 @@ function App() {
       {/* ============ CÓMO FUNCIONA — azul profundo ============ */}
       <section
         id="como-funciona"
-        className="relative overflow-hidden bg-mrc-blue-deep py-20 sm:py-24"
+        className="relative overflow-hidden bg-mrc-blue-deep py-16 sm:py-24"
       >
         <div className="mrc-iso-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="mb-14 max-w-3xl">
+          <div className="mb-10 max-w-3xl sm:mb-14">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-yellow">
               Cómo trabajamos
             </p>
-            <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+            <h2 className="mt-3 text-[2rem] sm:text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
               De la pregunta al resultado
             </h2>
             <div className="mrc-rule mt-5" />
-            <p className="mt-6 text-lg leading-relaxed text-white/75">
+            <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/75">
               El club enseña un tránsito: de «yo creo» a «la evidencia muestra». Todo
               proyecto arranca con una pregunta y termina en algo que un tercero puede
               revisar. Entre esos dos puntos está el oficio que se aprende aquí.
@@ -274,12 +300,12 @@ function App() {
             <span className="absolute inset-y-0 left-0 w-1.5 bg-mrc-yellow" />
             <Isotipo
               variant="blanco"
-              className="pointer-events-none absolute -bottom-8 right-4 hidden h-40 w-auto opacity-[0.06] sm:block"
+              className="pointer-events-none absolute -bottom-6 right-2 h-28 w-auto opacity-[0.06] sm:-bottom-8 sm:right-4 sm:h-40"
             />
             <p className="relative text-xs font-bold uppercase tracking-[0.2em] text-mrc-yellow">
               Una pregunta en acción
             </p>
-            <p className="relative mt-4 max-w-3xl text-lg leading-relaxed text-white/85">
+            <p className="relative mt-4 max-w-3xl text-base sm:text-lg leading-relaxed text-white/85">
               Las ventas en línea caen 15%. La pregunta útil no es qué hacer, sino qué lo
               está causando: el tipo de contenido, el formato de la campaña, un cambio
               generacional. La respuesta se busca con un experimento A/B que enfrenta
@@ -287,7 +313,8 @@ function App() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <Desliza total={3} oscuro />
+          <div className={`${CARRUSEL} md:grid-cols-3`}>
             {[
               {
                 n: '01',
@@ -310,7 +337,7 @@ function App() {
             ].map((b) => (
               <div
                 key={b.n}
-                className="hover-lift group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-colors hover:border-mrc-yellow/40"
+                className={`${CARRUSEL_ITEM} hover-lift group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm transition-colors hover:border-mrc-yellow/40`}
               >
                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-mrc-yellow via-mrc-orange to-transparent" />
                 <span className="pointer-events-none absolute -right-3 -top-6 text-[7rem] font-black leading-none text-white/[0.05] transition-colors group-hover:text-mrc-yellow/10">
@@ -333,23 +360,24 @@ function App() {
       </section>
 
       {/* ============ DOMINIOS — claro ============ */}
-      <section id="areas" className="bg-white py-20 sm:py-24">
+      <section id="areas" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="mb-14 max-w-2xl">
+          <div className="mb-10 max-w-2xl sm:mb-14">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
               De qué está hecho el campo
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-mrc-blue-deep md:text-6xl">
+            <h2 className="mt-3 text-[2rem] sm:text-4xl font-black tracking-tight text-mrc-blue-deep md:text-6xl">
               DOMINIOS
             </h2>
             <div className="mrc-rule mt-5" />
-            <p className="mt-6 text-lg text-mrc-gray">
+            <p className="mt-6 text-base sm:text-lg text-mrc-gray">
               Siete frentes donde el club investiga. Cada proyecto se ancla en{' '}
               <strong className="font-bold text-mrc-blue">uno o dos</strong> de ellos.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <Desliza total={7} />
+          <div className={`${CARRUSEL} md:grid-cols-2 xl:grid-cols-3`}>
             {[
               { icono: Brain, nombre: 'Comportamiento del consumidor', texto: 'Cómo perciben, deciden y actúan las personas. Psicología del consumo, economía conductual y neuromarketing.', fondo: 'bg-mrc-blue' },
               { icono: Waves, nombre: 'Marketing sensorial', texto: 'El papel de los sentidos en la experiencia de marca y en el momento de la decisión de compra.', fondo: 'bg-mrc-orange' },
@@ -363,7 +391,7 @@ function App() {
               return (
               <div
                 key={d.nombre}
-                className={`hover-lift group overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white shadow-sm transition-colors hover:border-mrc-blue/30 ${
+                className={`${CARRUSEL_ITEM} hover-lift group overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white shadow-sm transition-colors hover:border-mrc-blue/30 ${
                   ancho ? 'md:col-span-2 md:flex xl:col-span-2' : ''
                 }`}
               >
@@ -398,24 +426,25 @@ function App() {
       </section>
 
       {/* ============ MÉTODOS — azul profundo ============ */}
-      <section className="relative overflow-hidden bg-mrc-blue-deep py-20 sm:py-24">
+      <section className="relative overflow-hidden bg-mrc-blue-deep py-16 sm:py-24">
         <div className="mrc-iso-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="mb-14 max-w-2xl">
+          <div className="mb-10 max-w-2xl sm:mb-14">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-yellow">
               Con qué se responde
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-white md:text-6xl">
+            <h2 className="mt-3 text-[2rem] sm:text-4xl font-black tracking-tight text-white md:text-6xl">
               MÉTODOS
             </h2>
             <div className="mrc-rule mt-5" />
-            <p className="mt-6 text-lg text-white/70">
+            <p className="mt-6 text-base sm:text-lg text-white/70">
               Una cosa es qué se estudia y otra cómo. El método se elige según la pregunta,
               no al revés.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <Desliza total={4} oscuro />
+          <div className={`${CARRUSEL} md:grid-cols-2 xl:grid-cols-4`}>
             {[
               { icono: FlaskConical, nombre: 'Experimentación', texto: 'Diseños experimentales y medidas biométricas para inferir procesos de percepción, emoción y decisión.' },
               { icono: Sigma, nombre: 'Modelado estadístico', texto: 'Modelos formales y econometría sobre datos observacionales o de panel, para estimar efectos y pronosticar.' },
@@ -424,7 +453,7 @@ function App() {
             ].map((m, i) => (
               <div
                 key={m.nombre}
-                className="hover-lift group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-sm transition-colors hover:border-mrc-yellow/50"
+                className={`${CARRUSEL_ITEM} hover-lift group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-sm transition-colors hover:border-mrc-yellow/50`}
               >
                 <div className="relative h-28 overflow-hidden bg-mrc-yellow">
                   <div className="mrc-iso-grid absolute inset-0 opacity-70" />
@@ -449,17 +478,17 @@ function App() {
       </section>
 
       {/* ================= AGENDA — claro ================= */}
-      <section id="agenda" className="bg-mrc-paper-alt py-20 sm:py-24">
+      <section id="agenda" className="bg-mrc-paper-alt py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="mb-12 max-w-2xl">
+          <div className="mb-10 max-w-2xl sm:mb-12">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
               Sesiones {PROGRAMA.anio}
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-mrc-blue-deep md:text-5xl">
+            <h2 className="mt-3 text-[2rem] sm:text-4xl font-black tracking-tight text-mrc-blue-deep md:text-5xl">
               Agenda
             </h2>
             <div className="mrc-rule mt-5" />
-            <p className="mt-6 text-lg text-mrc-gray">
+            <p className="mt-6 text-base sm:text-lg text-mrc-gray">
               El calendario se ajusta a medida que se confirman invitados y proyectos. Los
               encuentros son los{' '}
               <strong className="font-bold text-mrc-blue">
@@ -468,15 +497,16 @@ function App() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <Desliza total={allEvents.length} />
+          <div className={`${CARRUSEL} md:grid-cols-2 xl:grid-cols-3`}>
             {allEvents.map((event) => (
               <button
                 key={event.id}
                 type="button"
                 onClick={() => setSelectedEvent(event)}
-                className="hover-lift group overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white text-left shadow-sm hover:border-mrc-blue/30"
+                className={`${CARRUSEL_ITEM} hover-lift group overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white text-left shadow-sm hover:border-mrc-blue/30`}
               >
-                <div className="image-hover-zoom relative h-40 overflow-hidden">
+                <div className="image-hover-zoom relative h-44 overflow-hidden sm:h-40">
                   <img
                     src={event.image}
                     alt=""
@@ -521,7 +551,7 @@ function App() {
                     <span className="font-medium text-mrc-gray">{event.speaker}</span>
                   </div>
 
-                  <span className="mt-4 flex items-center gap-2 border-t border-mrc-blue/10 pt-4 text-sm font-bold text-mrc-blue opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="mt-4 flex items-center gap-2 border-t border-mrc-blue/10 pt-4 text-sm font-bold text-mrc-blue transition-opacity md:opacity-0 md:group-hover:opacity-100">
                     Ver detalles
                     <ArrowRight className="h-4 w-4" />
                   </span>
@@ -533,30 +563,30 @@ function App() {
       </section>
 
       {/* ================= FASES — azul profundo ================= */}
-      <section id="fases" className="relative overflow-hidden bg-mrc-blue-deep py-20 sm:py-24">
+      <section id="fases" className="relative overflow-hidden bg-mrc-blue-deep py-16 sm:py-24">
         <div className="mrc-iso-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="mb-12 max-w-2xl">
+          <div className="mb-10 max-w-2xl sm:mb-12">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-yellow">
               Estructura del programa
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-white md:text-5xl">
+            <h2 className="mt-3 text-[2rem] sm:text-4xl font-black tracking-tight text-white md:text-5xl">
               Cuatro fases de aprendizaje
             </h2>
             <div className="mrc-rule mt-5" />
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {phases.map((phase) => {
               const accent = PHASE_ACCENT[phase.accent];
               return (
                 <div
                   key={phase.name}
-                  className="hover-lift relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm"
+                  className="hover-lift relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:p-6"
                 >
                   <span className={`absolute inset-x-0 top-0 h-1 ${accent.bar}`} />
-                  <phase.icon className={`mb-5 h-8 w-8 ${accent.icon}`} />
-                  <h3 className="text-xl font-black text-white">{phase.name}</h3>
+                  <phase.icon className={`mb-4 h-7 w-7 sm:mb-5 sm:h-8 sm:w-8 ${accent.icon}`} />
+                  <h3 className="text-lg font-black text-white sm:text-xl">{phase.name}</h3>
                   <p className="mt-1 text-sm font-medium text-white/65">{phase.subtitle}</p>
                   <span className="mt-5 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">
                     {phase.events.length} sesiones
@@ -569,31 +599,31 @@ function App() {
       </section>
 
       {/* ================= NOSOTROS — claro ================= */}
-      <section id="nosotros" className="bg-white py-20 sm:py-24">
+      <section id="nosotros" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-12 sm:gap-14 lg:grid-cols-2 lg:gap-16">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
                 Sobre nosotros
               </p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
+              <h2 className="mt-3 text-[2rem] sm:text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
                 Arquitectura del criterio
               </h2>
               <div className="mrc-rule mt-5" />
-              <p className="mt-6 text-lg leading-relaxed text-mrc-gray">
+              <p className="mt-6 text-base sm:text-lg leading-relaxed text-mrc-gray">
                 El Marketing Research Club es una comunidad dedicada al estudio y la
                 aplicación de la investigación científica en mercadeo. Reunimos estudiantes,
                 profesores y profesionales interesados en comprender el comportamiento del
                 consumidor, generar conocimiento relevante y promover decisiones
                 fundamentadas en evidencia.
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-mrc-gray">
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-mrc-gray">
                 Entendemos la investigación no como un ejercicio académico aislado, sino
                 como una herramienta para interpretar mercados, reducir incertidumbre y
                 construir mejores estrategias.
               </p>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <div className="mt-8 grid grid-cols-2 gap-3">
                 {[
                   ['Pensamiento crítico', 'Cuestionamos antes de aceptar.'],
                   ['Rigor académico', 'Metodología sólida como fundamento.'],
@@ -602,7 +632,7 @@ function App() {
                 ].map(([title, copy]) => (
                   <div
                     key={title}
-                    className="rounded-xl border border-mrc-blue/10 bg-mrc-paper-alt p-4"
+                    className="rounded-xl border border-mrc-blue/10 bg-mrc-paper-alt p-3 sm:p-4"
                   >
                     <p className="text-sm font-bold text-mrc-blue">{title}</p>
                     <p className="mt-1 text-sm text-mrc-gray">{copy}</p>
@@ -645,10 +675,10 @@ function App() {
       </section>
 
       {/* ================= ÁREA DE MERCADEO — azul profundo ================= */}
-      <section id="area" className="relative overflow-hidden bg-mrc-blue-deep py-20 sm:py-24">
+      <section id="area" className="relative overflow-hidden bg-mrc-blue-deep py-16 sm:py-24">
         <div className="mrc-iso-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
+          <div className="grid items-center gap-12 sm:gap-14 lg:grid-cols-2 lg:gap-16">
             <div className="relative order-2 lg:order-1">
               <div className="aspect-[4/3] overflow-hidden rounded-2xl">
                 <img
@@ -683,17 +713,17 @@ function App() {
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-yellow">
                 Área académica
               </p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+              <h2 className="mt-3 text-[2rem] sm:text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
                 Área de Mercadeo
               </h2>
               <div className="mrc-rule mt-5" />
-              <p className="mt-6 text-lg leading-relaxed text-white/75">
+              <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/75">
                 El Área de Mercadeo de la Facultad de Administración de la Universidad de
                 los Andes contribuye al desarrollo sostenible de las organizaciones y al
                 bienestar social mediante la generación, divulgación y transferencia de
                 conocimiento.
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-white/75">
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-white/75">
                 Lidera la maestría en mercadeo y la especialización en inteligencia de
                 mercados, referencia en Colombia, además de cursos de pregrado, semilleros
                 de investigación y acompañamiento a estudiantes doctorales.
@@ -827,14 +857,14 @@ function App() {
       </section>
 
       {/* ============ QUÉ TE LLEVAS — claro ============ */}
-      <section id="certificacion" className="bg-mrc-paper-alt py-20 sm:py-24">
+      <section id="certificacion" className="bg-mrc-paper-alt py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
-          <div className="mb-14 grid items-end gap-8 lg:grid-cols-[1.2fr_1fr]">
+          <div className="mb-10 grid items-end gap-6 sm:mb-14 sm:gap-8 lg:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
                 Al terminar el semestre
               </p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
+              <h2 className="mt-3 text-[2rem] sm:text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
                 QUÉ TE LLEVAS
               </h2>
               <div className="mrc-rule mt-5" />
@@ -851,7 +881,8 @@ function App() {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <Desliza total={4} />
+          <div className={`${CARRUSEL} md:grid-cols-2 lg:grid-cols-4`}>
             {[
               {
                 icono: FileText,
@@ -888,7 +919,7 @@ function App() {
             ].map((e, i) => (
               <div
                 key={e.titulo}
-                className="hover-lift group flex flex-col overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white shadow-sm transition-colors hover:border-mrc-blue/30"
+                className={`${CARRUSEL_ITEM} hover-lift group flex flex-col overflow-hidden rounded-2xl border border-mrc-blue/10 bg-white shadow-sm transition-colors hover:border-mrc-blue/30`}
               >
                 <div className={`relative h-28 overflow-hidden ${e.fondo}`}>
                   <div className="mrc-iso-grid absolute inset-0 opacity-80" />
@@ -926,14 +957,14 @@ function App() {
       </section>
 
       {/* ================= ALIADOS — banda clara, cierre de credibilidad ================= */}
-      <section id="aliados" className="border-t border-mrc-blue/10 bg-white py-20 sm:py-24">
+      <section id="aliados" className="border-t border-mrc-blue/10 bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6">
           <div className="grid items-end gap-6 lg:grid-cols-[1.1fr_1fr]">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-mrc-blue">
                 Aliados
               </p>
-              <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
+              <h2 className="mt-3 text-[2rem] sm:text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
                 LA INDUSTRIA, CERCA
               </h2>
               <div className="mrc-rule mt-5" />
@@ -944,18 +975,18 @@ function App() {
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-mrc-blue/10 bg-mrc-blue/10 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-10 grid grid-cols-2 gap-px sm:mt-14 overflow-hidden rounded-2xl border border-mrc-blue/10 bg-mrc-blue/10 sm:grid-cols-3 lg:grid-cols-5">
             {ALIADOS.map((aliado) => (
               <div
                 key={aliado.archivo}
-                className="group flex items-center justify-center bg-white px-5 py-8 transition-colors hover:bg-mrc-paper-alt"
+                className="group flex items-center justify-center bg-white px-3 py-6 transition-colors sm:px-5 sm:py-8 hover:bg-mrc-paper-alt"
                 title={aliado.nombre}
               >
                 <img
                   src={`./brand/aliados/${aliado.archivo}.png`}
                   alt={aliado.nombre}
                   loading="lazy"
-                  className="h-10 w-auto max-w-full object-contain opacity-60 grayscale transition duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 sm:h-12"
+                  className="h-10 w-auto max-w-full object-contain opacity-80 grayscale transition duration-300 sm:opacity-60 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0 sm:h-12"
                 />
               </div>
             ))}
@@ -964,13 +995,13 @@ function App() {
       </section>
 
       {/* ================= CTA FINAL — amarillo de acento ================= */}
-      <section className="bg-mrc-yellow py-20 sm:py-24">
+      <section className="bg-mrc-yellow py-16 sm:py-24">
         <div className="mx-auto max-w-4xl px-5 text-center sm:px-6">
           <Isotipo variant="principal" className="mx-auto h-14 w-auto" />
-          <h2 className="mt-8 text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
+          <h2 className="mt-8 text-[2rem] sm:text-4xl font-black leading-tight tracking-tight text-mrc-blue-deep md:text-5xl">
             Únete a la comunidad
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg font-medium text-mrc-blue-deep/75">
+          <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg font-medium text-mrc-blue-deep/75">
             Formación continua, networking y proyectos de investigación aplicada.
             Abierto a estudiantes de todas las carreras.
           </p>
@@ -1016,15 +1047,20 @@ function App() {
                 <LogoFacultad className="h-10 w-auto" />
               </a>
             </div>
-            <div className="text-center md:text-right">
+            {/* w-full + min-w-0: sin esto el bloque toma el ancho del correo (una
+                sola palabra de 440 px) y se sale de la pantalla en celular. */}
+            <div className="w-full min-w-0 text-center md:w-auto md:text-right">
               <a
                 href={`mailto:${EMAIL_RECIPIENT}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md text-sm font-semibold text-mrc-yellow transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mrc-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-mrc-blue-ink"
+                className="inline-flex max-w-full items-center gap-2 rounded-md text-xs font-semibold text-mrc-yellow sm:text-sm transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mrc-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-mrc-blue-ink"
               >
-                <Mail className="h-4 w-4" />
-                {EMAIL_RECIPIENT}
+                <Mail className="hidden h-4 w-4 shrink-0 sm:block" />
+                <span className="min-w-0 [overflow-wrap:anywhere]">
+                  {EMAIL_RECIPIENT.split('@')[0]}
+                  <wbr />@{EMAIL_RECIPIENT.split('@')[1]}
+                </span>
               </a>
               <p className="mt-3 text-sm text-white/60">
                 © 2026 Marketing Research Club · Universidad de los Andes
@@ -1055,7 +1091,7 @@ function App() {
 
       {/* ================= DIÁLOGO: detalle de sesión ================= */}
       <Dialog open={!!selectedEvent} onOpenChange={() => setSelectedEvent(null)}>
-        <DialogContent className="max-w-lg border-mrc-blue/15 bg-white text-mrc-ink">
+        <DialogContent className="max-h-[90svh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-2xl border-mrc-blue/15 bg-white text-mrc-ink">
           <DialogHeader>
             <DialogTitle className="text-2xl font-black text-mrc-blue-deep">
               {selectedEvent?.title}
@@ -1122,7 +1158,7 @@ function App() {
 
       {/* ================= DIÁLOGO: inscripción a sesión ================= */}
       <Dialog open={sessionDialogOpen} onOpenChange={setSessionDialogOpen}>
-        <DialogContent className="max-w-md border-mrc-blue/15 bg-white text-mrc-ink">
+        <DialogContent className="max-h-[90svh] w-[calc(100%-2rem)] max-w-md overflow-y-auto rounded-2xl border-mrc-blue/15 bg-white text-mrc-ink">
           <DialogHeader>
             <DialogTitle className="text-2xl font-black text-mrc-blue-deep">
               Inscríbete a una sesión

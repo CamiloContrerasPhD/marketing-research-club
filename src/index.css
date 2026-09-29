@@ -220,3 +220,17 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Móvil: ningún elemento puede ensanchar la página hacia los lados */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* Carruseles deslizables sin barra visible */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
